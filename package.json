@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-node-canvas",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Gulp plugin to deploy node-canvas with its dependencies",
   "main": "index.js",
   "scripts": {
