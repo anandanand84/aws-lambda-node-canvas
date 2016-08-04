@@ -1,0 +1,52 @@
+export LDFLAGS=-Wl,-rpath=/var/task/
+sudo yum groupinstall "Development Tools"
+sudo yum install fontconfig-devel.x86_64
+sudo yum erase cairo
+
+export PKG_CONFIG_PATH='/usr/local/lib/pkgconfig'
+export LD_LIBRARY_PATH='/usr/local/lib':$LD_LIBRARY_PATH
+
+
+curl -L http://sourceforge.net/projects/libpng/files/libpng15/1.5.27/libpng-1.5.27.tar.xz/download -o libpng.tar.xz
+tar -Jxf libpng.tar.xz && cd libpng-1.5.27/
+sudo yum -y install zlib-devel
+./configure --prefix=/home/ec2-user/canvas
+make
+sudo make install
+
+curl http://www.ijg.org/files/jpegsrc.v8d.tar.gz -o jpegsrc.tar.gz
+tar -zxf jpegsrc.tar.gz && cd jpeg-8d/
+./configure --disable-dependency-tracking --prefix=/home/ec2-user/canvas
+make
+sudo make install
+
+curl https://www.cairographics.org/releases/pixman-0.28.2.tar.gz -o pixman.tar.gz
+tar -zxf pixman.tar.gz && cd pixman-0.28.2/
+./configure --prefix=/home/ec2-user/canvas
+make
+sudo make install
+
+curl http://download-mirror.savannah.gnu.org/releases//freetype/freetype-2.4.11.tar.gz -o freetype.tar.gz
+tar -zxf freetype.tar.gz && cd freetype-2.4.11/
+./configure --prefix=/home/ec2-user/canvas
+make
+sudo make install
+
+curl https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.0.tar.bz2 -o fontconfig.gz
+
+sudo yum install libpng-devel
+curl https://cairographics.org/releases/cairo-1.12.14.tar.xz -o cairo.tar.xz
+tar -xJf cairo.tar.xz && cd cairo-1.12.14/
+PKG_CONFIG_PATH=/home/ec2-user/canvas/lib/pkgconfig
+PKG_CONFIG=/home/ec2-user/canvas/lib/pkgconfig
+./configure --disable-dependency-tracking --without-x --prefix=/home/ec2-user/canvas
+make
+sudo make install
+
+sudo yum install giflib-devel
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+
+nvm install 4.3
+
+PKG_CONFIG_PATH=/home/ec2-user/canvas/lib/pkgconfig:/usr/local/lib/pkgconfig
