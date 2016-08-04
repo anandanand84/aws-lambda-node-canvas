@@ -1,0 +1,13 @@
+prefix=/home/ec2-user/canvas
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: cairo
+Description: Multi-platform 2D graphics library
+Version: 1.12.14
+
+Requires.private:        pixman-1 >= 0.22.0    freetype2 >= 9.7.3   libpng 
+Libs: -L${libdir} -lcairo
+Libs.private:          -lz -lz    
+Cflags: -I${includedir}/cairo

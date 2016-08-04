@@ -1,0 +1,26 @@
+/**
+ * Created by anand on 8/3/16.
+ */
+var Canvas = require('canvas');
+
+exports.lambda_handler = function(event, context) {
+
+    var canvas = new Canvas();
+    canvas.width = 100;
+    canvas.height = 100;
+
+    var g = canvas.getContext('2d');
+    g.fillStyle = 'red';
+    g.fillRect(0, 0, 50, 50);
+    g.fillStyle = 'green';
+    g.fillRect(50, 0, 50, 50);
+    g.fillStyle = 'blue';
+    g.fillRect(0, 50, 50, 50);
+    g.fillStyle = 'yellow';
+    g.fillRect(50, 50, 50, 50);
+
+    var image = canvas.toDataURL();
+    console.log(image);
+    context.succeed('Done! '+image);
+    return image;
+};

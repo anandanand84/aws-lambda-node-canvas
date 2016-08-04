@@ -1,0 +1,37 @@
+{
+  "name": "aws-lambda-node-canvas",
+  "version": "1.0.0",
+  "description": "Gulp plugin to deploy node-canvas with its dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandanand84/aws-lambda-node-canvas.git"
+  },
+  "keywords": [
+    "gulp",
+    "aws",
+    "lambda",
+    "node",
+    "canvas",
+    "gulp",
+    "plugin"
+  ],
+  "author": "anandanand84",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anandanand84/aws-lambda-node-canvas/issues"
+  },
+  "homepage": "https://github.com/anandanand84/aws-lambda-node-canvas#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-awslambda": "^0.4.0",
+    "gulp-unzip": "^0.1.4",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.2.0",
+    "through2": "^2.0.1",
+    "vinyl-fs": "^2.4.3"
+  }
+}
